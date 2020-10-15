@@ -63,4 +63,20 @@ class OrderBookTest {
         orderBook.sellOrder(1);
         Assert.assertEquals("6,1", orderBook.queryBestBid());
     }
+
+    @Test
+    void sellOrder_SellSome() {
+        OrderBook orderBook = new OrderBook();
+        orderBook.updateBidForPrice(4, 20);
+        orderBook.sellOrder(5);
+        Assert.assertEquals("4,15", orderBook.queryBestBid());
+    }
+
+    @Test
+    void buyOrder_BuySome() {
+        OrderBook orderBook = new OrderBook();
+        orderBook.updateAskForPrice(40, 5);
+        orderBook.buyOrder(2);
+        Assert.assertEquals("40,3", orderBook.queryBestAsk());
+    }
 }

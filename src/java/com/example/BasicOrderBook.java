@@ -24,7 +24,6 @@ public class BasicOrderBook {
              FileWriter writeFile = new FileWriter(OUTPUT_FILE)) {
             commandStringStream
                     .map(CommandFactory::getCommand)
-//                    .peek(System.out::println)
                     .map(e -> e.execute(orderBook))
                     .filter(Objects::nonNull)
                     .collect(Collectors.toList())
