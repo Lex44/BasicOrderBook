@@ -1,6 +1,7 @@
-package com.example.commands;
+package com.example.commands.impl;
 
-import com.example.OrderBook;
+import com.example.service.OrderBook;
+import com.example.commands.Command;
 
 public class QueryBestAskCommand implements Command {
     @Override

@@ -1,4 +1,7 @@
-package com.example.commands;
+package com.example.service;
+
+import com.example.commands.Command;
+import com.example.commands.impl.*;
 
 import java.util.Arrays;
 import java.util.List;

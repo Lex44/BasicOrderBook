@@ -1,6 +1,8 @@
-package com.example.commands;
+package com.example.commands.impl;
 
-import com.example.OrderBook;
+import com.example.service.OrderBook;
+import com.example.commands.Command;
+import com.example.service.CommandFactory;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;

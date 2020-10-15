@@ -1,4 +1,4 @@
-package com.example;
+package com.example.service;
 
 import java.util.Comparator;
 import java.util.SortedMap;
