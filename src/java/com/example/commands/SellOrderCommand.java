@@ -14,4 +14,9 @@ public class SellOrderCommand implements Command {
         orderBook.sellOrder(size);
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "command:sell_order:size=" + size;
+    }
 }

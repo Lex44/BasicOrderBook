@@ -16,4 +16,9 @@ public class UpdateAskCommand implements Command {
         orderBook.updateAskForPrice(price, size);
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "command:ask_update:price=" + price + ":size=" + size;
+    }
 }

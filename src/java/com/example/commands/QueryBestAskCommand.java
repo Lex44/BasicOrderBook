@@ -7,4 +7,9 @@ public class QueryBestAskCommand implements Command {
     public String execute(OrderBook orderBook) {
         return orderBook.queryBestAsk();
     }
+
+    @Override
+    public String toString() {
+        return "command:best_ask";
+    }
 }

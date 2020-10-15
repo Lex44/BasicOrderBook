@@ -23,4 +23,9 @@ public class UnknownCommand implements Command {
         log.error("Unknown command=[" + command + "]");
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "command:unknown:[" + command + "]";
+    }
 }

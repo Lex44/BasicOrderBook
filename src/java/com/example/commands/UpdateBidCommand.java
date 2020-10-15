@@ -16,4 +16,9 @@ public class UpdateBidCommand implements Command {
         orderBook.updateBidForPrice(price, size);
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "command:bid_update:price=" + price + ":size=" + size;
+    }
 }

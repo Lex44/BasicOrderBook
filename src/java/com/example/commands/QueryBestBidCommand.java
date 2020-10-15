@@ -7,4 +7,9 @@ public class QueryBestBidCommand implements Command {
     public String execute(OrderBook orderBook) {
         return orderBook.queryBestBid();
     }
+
+    @Override
+    public String toString() {
+        return "command:best_bid";
+    }
 }

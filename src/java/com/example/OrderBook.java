@@ -5,17 +5,23 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class OrderBook {
-    public static final String NA = "N/A";
-
     private final SortedMap<Integer, Integer> asksMap = new TreeMap<>();
     private final SortedMap<Integer, Integer> bidsMap = new TreeMap<>(Comparator.reverseOrder());
 
     public String queryBestAsk() {
-        return asksMap.isEmpty() ? NA : String.valueOf(asksMap.firstKey());
+        if (asksMap.isEmpty()) {
+            throw new IllegalStateException("No Asks in the Order table!");
+        }
+
+        return asksMap.firstKey() + "," + asksMap.get(asksMap.firstKey());
     }
 
     public String queryBestBid() {
-        return bidsMap.isEmpty() ? NA : String.valueOf(bidsMap.firstKey());
+        if (bidsMap.isEmpty()) {
+            throw new IllegalStateException("No bids in the Order table!");
+        }
+
+        return bidsMap.firstKey() + "," + bidsMap.get(bidsMap.firstKey());
     }
 
     public String getSizeAtPrice(int price) {
@@ -54,12 +60,12 @@ public class OrderBook {
 
     public void updateBidForPrice(int price, int size) {
         int notProcessedSize = size;
-        if (notProcessedSize != 0 && !bidsMap.isEmpty()) {
-            notProcessedSize = processOrderInstantly(bidsMap, price, size, true);
+        if (notProcessedSize != 0 && !asksMap.isEmpty()) {
+            notProcessedSize = processOrderInstantly(asksMap, price, size, true);
         }
 
         if (notProcessedSize != 0) {
-            asksMap.put(price, notProcessedSize);
+            bidsMap.put(price, notProcessedSize);
         }
     }
 

@@ -44,7 +44,7 @@ public final class CommandFactory {
                 && COMMAND_QUERY_PARAM_SIZE.equals(subCommand)) {
             try {
                 int price = Integer.parseInt(commandParts.get(2));
-                return new GetSizeAtPrice(price);
+                return new GetSizeAtPriceCommand(price);
             } catch (NumberFormatException ignored) {
                 return new UnknownCommand(commandParts);
             }
